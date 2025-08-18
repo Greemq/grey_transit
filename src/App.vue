@@ -6,7 +6,8 @@ import HeaderComponent from "./components/HeaderComponent.vue";
 <template>
   <HeaderComponent />
   <!-- <FileUploadComponent /> -->
-  <div class="container mx-auto max-w-7xl">
+
+  <div class="container">
     <RouterView />
   </div>
 </template>

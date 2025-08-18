@@ -1,16 +1,15 @@
 export default {
   darkMode: "class",
-  content: [
-    "./src/components/**/*.vue",
-    "./src/views/**/*.vue",
-    "./src/**/*.js",
-    "./public/index.html",
-  ],
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
         "2xl": "1400px",
       },
     },
