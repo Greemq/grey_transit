@@ -7,13 +7,16 @@ import DataTable from "@/components/DataTable.vue";
 import { ref } from "vue";
 import CompanyRiskAnalysis from "@/components/CompanyRiskAnalysis.vue";
 import ReportGenerator from "@/components/ReportGenerator.vue";
+import TimeRangeSelector from "@/components/TimeRangeSelector.vue";
 
 const activeTab = ref(1);
 </script>
 
 <template>
   <div class="main">
-    <div class="card">1</div>
+    <div class="card !p-4">
+      <TimeRangeSelector />
+    </div>
     <div class="card card_2">
       <div class="item">
         <div class="item__header">
