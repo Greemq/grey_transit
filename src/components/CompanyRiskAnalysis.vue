@@ -399,19 +399,18 @@ const generateCompanyData = (timeRange) => {
     year: 12,
   };
 
-  const multiplier = periodMultipliers[timeRange];
+  const multiplier = periodMultipliers[timeRange] || 1;
 
   return companiesData
     .map((company, index) => {
       const baseHighRisk = Math.floor((50 + Math.random() * 100) * multiplier);
       const baseMediumRisk = Math.floor((30 + Math.random() * 80) * multiplier);
+      const safeCases = baseHighRisk + baseMediumRisk;
       const totalCases =
-        baseHighRisk +
-        baseMediumRisk +
-        Math.floor(Math.random() * 20 * multiplier);
+        safeCases + Math.floor(Math.random() * 20 * multiplier);
       const riskPercentage =
-        ((baseHighRisk + baseMediumRisk) / totalCases) * 100;
-      const potentialLoss = (baseHighRisk + baseMediumRisk) * 700000;
+        totalCases > 0 ? (safeCases / totalCases) * 100 : 0;
+      const potentialLoss = safeCases * 700000;
 
       let riskCategory;
       if (riskPercentage > 80) riskCategory = "critical";
@@ -428,9 +427,8 @@ const generateCompanyData = (timeRange) => {
         totalCases,
         riskPercentage: Math.round(riskPercentage),
         potentialLoss,
-        averageLossPerCase: Math.round(
-          potentialLoss / (baseHighRisk + baseMediumRisk)
-        ),
+        averageLossPerCase:
+          safeCases > 0 ? Math.round(potentialLoss / safeCases) : 0,
         trend: (Math.random() - 0.5) * 20,
         lastIncident: new Date(
           Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000
@@ -496,13 +494,15 @@ const totalPotentialLoss = computed(() =>
   )
 );
 
-const averageRisk = computed(
-  () =>
+const averageRisk = computed(() => {
+  if (filteredCompanies.value.length === 0) return 0;
+  return (
     filteredCompanies.value.reduce(
       (sum, company) => sum + company.riskPercentage,
       0
     ) / filteredCompanies.value.length
-);
+  );
+});
 
 const regionsData = computed(() =>
   Object.entries(
