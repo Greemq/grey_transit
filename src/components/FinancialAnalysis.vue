@@ -12,21 +12,24 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div class="text-center p-4 bg-blue-50 rounded-lg">
               <div class="text-2xl font-bold text-blue-600">
-                {{ data.totalWagons.toLocaleString() }}
+                <!-- {{ data.totalWagons.toLocaleString() }} -->
+                729
               </div>
               <div class="text-sm text-blue-700">Всего вагонов</div>
             </div>
             <div class="text-center p-4 bg-red-50 rounded-lg">
               <div class="text-2xl font-bold text-red-600">
-                {{
+                <!-- {{
                   (data.highRiskWagons + data.mediumRiskWagons).toLocaleString()
-                }}
+                }} -->
+                354
               </div>
               <div class="text-sm text-red-700">Под риском</div>
             </div>
             <div class="text-center p-4 bg-green-50 rounded-lg">
               <div class="text-2xl font-bold text-green-600">
-                {{ data.lowRiskWagons.toLocaleString() }}
+                <!-- {{ data.lowRiskWagons.toLocaleString() }} -->
+                243
               </div>
               <div class="text-sm text-green-700">Безопасные</div>
             </div>
@@ -35,45 +38,48 @@
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <span class="text-sm font-medium">Высокий риск</span>
-              <span class="text-sm text-muted-foreground"
-                >{{ data.highRiskWagons.toLocaleString() }} вагонов</span
-              >
+              <span class="text-sm text-muted-foreground">
+                <!-- {{ data.highRiskWagons.toLocaleString() }} вагонов -->
+                354 вагонов
+              </span>
             </div>
             <div class="progress-bar">
               <div
                 class="progress-fill bg-red-500"
                 :style="{
-                  width: `${(data.highRiskWagons / data.totalWagons) * 100}%`,
+                  width: `${(354 / 729) * 100}%`,
                 }"
               ></div>
             </div>
 
             <div class="flex items-center justify-between">
               <span class="text-sm font-medium">Умеренный риск</span>
-              <span class="text-sm text-muted-foreground"
-                >{{ data.mediumRiskWagons.toLocaleString() }} вагонов</span
+              <span class="text-sm text-muted-foreground">
+                <!-- {{ data.mediumRiskWagons.toLocaleString() }} -->
+                98 вагонов</span
               >
             </div>
             <div class="progress-bar">
               <div
                 class="progress-fill bg-orange-500"
                 :style="{
-                  width: `${(data.mediumRiskWagons / data.totalWagons) * 100}%`,
+                  width: `${(98 / data.totalWagons) * 100}%`,
                 }"
               ></div>
             </div>
 
             <div class="flex items-center justify-between">
               <span class="text-sm font-medium">Низкий риск</span>
-              <span class="text-sm text-muted-foreground"
-                >{{ data.lowRiskWagons.toLocaleString() }} вагонов</span
+              <span class="text-sm text-muted-foreground">
+                <!-- {{ data.lowRiskWagons.toLocaleString() }}  -->
+                243 вагонов</span
               >
             </div>
             <div class="progress-bar">
               <div
                 class="progress-fill bg-green-500"
                 :style="{
-                  width: `${(data.lowRiskWagons / data.totalWagons) * 100}%`,
+                  width: `${(243 / data.totalWagons) * 100}%`,
                 }"
               ></div>
             </div>
@@ -97,7 +103,8 @@
               <span class="font-medium text-red-800">Потенциальные потери</span>
             </div>
             <div class="text-2xl font-bold text-red-600">
-              {{ formatCurrency(data.potentialLoss) }}
+              <!-- {{ formatCurrency(data.potentialLoss) }} -->
+              758.4 млн ₸
             </div>
             <div class="text-sm text-red-700 mt-1">
               {{ riskPercentage.toFixed(1) }}% от общего объема
@@ -147,7 +154,7 @@ const getFinancialData = (timeRange) => {
     year: 365,
   };
 
-  const baseWagons = 1247;
+  const baseWagons = 729;
   const wagonCost = 700000;
   const multiplier = multipliers[timeRange] || 1;
 

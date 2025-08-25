@@ -44,7 +44,7 @@ const activeTab = ref(1);
           </div>
         </div>
         <div class="item__description">
-          <div class="font-bold">14</div>
+          <div class="font-bold">729</div>
           <div class="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ const activeTab = ref(1);
           </div>
         </div>
         <div class="item__description">
-          <div class="font-bold">14</div>
+          <div class="font-bold">354</div>
           <div class="flex items-center gap-2 mt-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +141,7 @@ const activeTab = ref(1);
           </div>
         </div>
         <div class="item__description">
-          <div class="font-bold">9</div>
+          <div class="font-bold">101</div>
           <div class="flex items-center gap-2 mt-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +187,7 @@ const activeTab = ref(1);
           </div>
         </div>
         <div class="item__description">
-          <div class="font-bold">9</div>
+          <div class="font-bold">758 100 000 ₸</div>
           <div class="flex items-center gap-2 mt-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"

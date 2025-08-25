@@ -37,7 +37,7 @@ const props = defineProps({
   value: {
     type: String,
     required: true,
-    default: "day",
+    default: "month",
   },
   lastUpdated: {
     type: Date,

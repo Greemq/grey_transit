@@ -27,7 +27,8 @@
         <div class="flex items-center justify-between">
           <div>
             <p class="text-sm text-muted-foreground">Компаний в риске</p>
-            <p class="text-2xl font-semibold">{{ filteredCompanies.length }}</p>
+            <!-- <p class="text-2xl font-semibold">{{ filteredCompanies.length }}</p> -->
+            <p class="text-2xl font-semibold">23</p>
           </div>
           <div class="w-8 h-8 text-blue-500">
             <svg
@@ -49,7 +50,8 @@
           <div>
             <p class="text-sm text-muted-foreground">Всего случаев риска</p>
             <p class="text-2xl font-semibold">
-              {{ totalRiskCases.toLocaleString() }}
+              <!-- {{ totalRiskCases.toLocaleString() }} -->
+              729
             </p>
           </div>
           <AlertTriangleIcon class="w-8 h-8 text-red-500" />
@@ -61,7 +63,8 @@
           <div>
             <p class="text-sm text-muted-foreground">Потенциальный ущерб</p>
             <p class="text-2xl font-semibold">
-              {{ formatCurrency(totalPotentialLoss) }}
+              <!-- {{ formatCurrency(totalPotentialLoss) }} -->
+              758 100 000 ₸
             </p>
           </div>
           <TrendingUpIcon class="w-8 h-8 text-orange-500" />
