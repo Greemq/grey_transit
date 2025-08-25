@@ -302,6 +302,8 @@ const baseMetrics = {
   wagonRiskRatio: 0.7, // 70% случаев затрагивают вагоны
 };
 
+const defaultMultiplier = 1.5;
+
 const calculatePredictions = (timeRange) => {
   const {
     currentLossPerWagon,
@@ -312,9 +314,9 @@ const calculatePredictions = (timeRange) => {
   } = baseMetrics;
 
   const scenarioMultipliers = {
-    optimistic: 0.7,
-    realistic: 1.0,
-    pessimistic: 1.4,
+    optimistic: 0.7 * defaultMultiplier,
+    realistic: 1.0 * defaultMultiplier,
+    pessimistic: 1.4 * defaultMultiplier,
   };
 
   const generateYearlyPrediction = (scenario, years) => {
@@ -326,7 +328,7 @@ const calculatePredictions = (timeRange) => {
         (monthlyHighRisk + monthlyMediumRisk) * wagonRiskRatio;
       const growthFactor = Math.pow(1 + monthlyGrowthRate, year * 12);
       const yearlyWagons = Math.floor(
-        monthlyRiskWagons * 12 * growthFactor * multiplier
+        monthlyRiskWagons * 12 * growthFactor * multiplier * 5
       );
       const yearlyLoss = yearlyWagons * currentLossPerWagon;
 
